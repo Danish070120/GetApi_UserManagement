@@ -21,4 +21,11 @@ public interface UserService {
 
 	List<User> fetchDepartmentList();
 
+	List<User> findAllByQualificationCategoryId(int categoryId);
+
+	List<User> findAllByQualificationQualiName(String qualiName);
+
+
+
 }
+ 

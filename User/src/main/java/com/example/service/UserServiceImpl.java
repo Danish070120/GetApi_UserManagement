@@ -53,17 +53,33 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> findAllBydepartId(int id) {
-		return userRepository.findAllBydepartId(id);
+		return userRepository.findByDepartmentDepartId(id);
 	}
 
 	@Override
 	public List<User> fetchCategoryList() {
-		return  (List<User>) userRepository.findAll();
+		return (List<User>) userRepository.findAll();
 	}
 
 	@Override
 	public List<User> fetchDepartmentList() {
 		return (List<User>) userRepository.findAll();
 	}
+
+	@Override
+	public List<User> findAllByQualificationCategoryId(int categoryId) {
+		log.info("findAllByQualificationCategoryId");
+
+		return userRepository.getByQualificationsCategoryId(categoryId);
+	}
+
+	@Override
+	public List<User> findAllByQualificationQualiName(String qualiName) {
+		// TODO Auto-generated method stub
+		return userRepository.getByQualificationsQualiName(qualiName);
+	}
+
+
+	
 
 }

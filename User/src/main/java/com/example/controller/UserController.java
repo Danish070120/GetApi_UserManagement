@@ -39,11 +39,23 @@ public class UserController {
 	public List<User> getAllUsersBydepartId(@PathVariable("id") int id) {
 		return userService.findAllBydepartId(id);
 	}
+
+	@GetMapping("/category/{categoryId}")
+	public List<User> getAllUsersByQualificationCategoryId(@PathVariable ("categoryId") int categoryId) {
+		return userService.findAllByQualificationCategoryId(categoryId);
+	}
 	
+
+	@GetMapping("/qualification/{qualiName}")
+	public List<User> getAllUsersByQualificationQualiName(@PathVariable ("qualiName") String qualiName) {
+		return userService.findAllByQualificationQualiName(qualiName);
+	}
+
 	@GetMapping("/category")
 	public List<User> fetchCategoryList() {
 		return userService.fetchCategoryList();
 	}
+
 	@GetMapping("/department")
 	public List<User> fetchDepartmentList() {
 		return userService.fetchDepartmentList();
@@ -53,6 +65,5 @@ public class UserController {
 	public User updateUser(@RequestBody User user, @PathVariable("id") Long id) {
 		return userService.updateUser(user, id);
 	}
-
 
 }
